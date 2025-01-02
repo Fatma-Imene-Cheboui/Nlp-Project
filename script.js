@@ -8,6 +8,7 @@ const scrollableStory = document.getElementById("scrollable-story");
 
 // Initialize the SpeechSynthesisUtterance object
 let speech = null;
+let scrollInterval = null;
 
 const initializeSpeech = () => {
   const storyText = scrollableStory.innerText;
@@ -20,7 +21,20 @@ const initializeSpeech = () => {
     const words = storyText.split(" ");
     const wordIndex = Math.floor(event.charIndex / (storyText.length / words.length));
     const scrollStep = (wordIndex / words.length) * scrollableStory.scrollHeight;
-    scrollableStory.scrollTop = scrollStep;
+
+    // Clear previous interval if it exists
+    if (scrollInterval) {
+      clearInterval(scrollInterval);
+    }
+
+    // Update scroll position gradually
+    scrollInterval = setInterval(() => {
+      if (scrollableStory.scrollTop < scrollStep) {
+        scrollableStory.scrollTop += 2; // Adjust this increment for smoother scrolling
+      } else {
+        clearInterval(scrollInterval); // Stop scrolling once the target scroll position is reached
+      }
+    }, 700); // Adjust this delay for smoother scrolling speed
   };
 };
 
@@ -37,6 +51,7 @@ readAloudButton.addEventListener("click", () => {
 // Pause button click event
 pauseButton.addEventListener("click", () => {
   if (speechSynthesis.speaking) speechSynthesis.pause();
+  clearInterval(scrollInterval); // Clear the scroll interval immediately when paused
 });
 
 // Resume button click event
@@ -47,6 +62,7 @@ resumeButton.addEventListener("click", () => {
 // Stop button click event
 stopButton.addEventListener("click", () => {
   speechSynthesis.cancel();
+  clearInterval(scrollInterval); // Clear the scroll interval immediately when stopped
   scrollableStory.scrollTop = 0; // Reset scroll position
   speech = null; // Reset speech to reinitialize
 });
