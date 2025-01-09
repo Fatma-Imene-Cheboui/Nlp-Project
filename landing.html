@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Arabic Storytelling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="images/Group 1.png" alt="Navbar">
+    </div>
+    <p class="sub-title">مكتبة وراوٍ للأطفال العرب</p>
+    <h1 class="main-heading">نغذي أطفالكم بالخيال الذي يسعدهم وينميهم!</h1>
+    <p class="sub-heading">أنشئ قصصا بلغة سليمة تسعد طفلك وتعلمه قيما مناسبة لعمره</p>
+    <a class="cta-button" href="prompt.html">أنشئ مغامرتك الآن</a>
+
+    <div class="images-container">
+        <img src="images/big_img.png" alt="Featured Image">
+    </div>
+
+    <div class="carousel-wrapper">
+        <button class="carousel-button prev" disabled>←</button>
+        <button class="carousel-button next">→</button>
+
+        <div class="carousel-container">
+            <div class="carousel-item" style="background-image: url('images/Story\ image-5.png')">
+                <div class="content-overlay">
+                    <h3 class="title">الخروف الذكي</h3>
+                    <p class="description">قيمة التفكير - من 5 إلى 8 سنوات</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('images/Story\ image.png')">
+                <div class="content-overlay">
+                    <h3 class="title">بذور الأمل</h3>
+                    <p class="description">قيمة التفاؤل - من 5 إلى 8 سنوات</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('images/Story\ image-3.png')">
+                <div class="content-overlay">
+                    <h3 class="title">الروبوت الرسام</h3>
+                    <p class="description">قيمة الابتكار - من 8 إلى 10 سنوات</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('images/Story\ image-4.png')">
+                <div class="content-overlay">
+                    <h3 class="title">مدينة الغيوم</h3>
+                    <p class="description">التطلع والاستكشاف - من 5 إلى 8 سنوات</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('images/Story\ image-2.png')">
+                <div class="content-overlay">
+                    <h3 class="title">الأسد الشجاع</h3>
+                    <p class="description">قيمة الشجاعة - من 5 إلى 8 سنوات</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('images/Story\ image.png')">
+                <div class="content-overlay">
+                    <h3 class="title">الكلب المغامر</h3>
+                    <p class="description">حب المغامرة - من 4 إلى 7 سنوات</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <a href="stories.html" style="text-decoration: none;">
+        <div class="cta-button" style="background: #FFD7BA; border-radius: 28px; padding: 15px 30px;">
+            <div style="color: #18181B; font-size: 16px; font-family: Almarai; font-weight: 700;">
+                اطلع على القصص
+            </div>
+        </div>
+    </a>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.querySelector('.carousel-container');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+
+            let currentIndex = 0;
+
+            function getVisibleItems() {
+                if (window.innerWidth <= 768) {
+                    return 1; // Mobile: show 1 item
+                } else if (window.innerWidth <= 1024) {
+                    return 2; // Tablet: show 2 items
+                }
+                return 3; // Desktop: show 3 items
+            }
+
+            function updateCarousel() {
+                const visibleItems = getVisibleItems();
+                const totalItems = items.length;
+                const maxIndex = totalItems - visibleItems;
+
+                // Get the item width dynamically
+                const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(container).gap);
+
+                // Calculate the translation value (negative for RTL direction)
+                const translateValue = currentIndex * itemWidth;
+                container.style.transform = `translateX(${translateValue}px)`;
+
+                // Update button states
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const visibleItems = getVisibleItems();
+                const maxIndex = items.length - visibleItems;
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    // Reset position and update carousel
+                    currentIndex = 0;
+                    updateCarousel();
+                }, 250);
+            });
+
+            // Initial update
+            updateCarousel();
+        });
+    </script>
+</body>
+
+</html>

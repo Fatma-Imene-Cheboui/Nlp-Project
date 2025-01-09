@@ -1,0 +1,1016 @@
+/*-----------------------------------Landing---------------------------------------------*/
+body {
+    font-family: 'Almarai', sans-serif;
+    color: #18181B;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background: #FEC5BB;
+    border-radius: 30px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 700;
+    color: #18181B;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #FF6347;
+    color: #fff;
+}
+
+.images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.images-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    display: flex;
+    gap: clamp(5px, 1vw, 10px);
+    transition: transform 0.3s ease-in-out;
+    direction: rtl;
+    margin: 0 clamp(20px, 3vw, 40px);
+}
+
+.carousel-item {
+    flex: 0 0 calc(33.333% - clamp(5px, 1vw, 10px));
+    height: clamp(150px, 25vw, 200px);
+    /* Reduced height for better fit */
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.content-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: clamp(10px, 2vw, 20px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 100%);
+    color: white;
+    text-align: right;
+}
+
+.content-overlay .title {
+    color: #FFD7BA;
+    font-size: clamp(16px, 3vw, 25px);
+    font-weight: 700;
+    margin-bottom: clamp(5px, 1vw, 15px);  /* Dynamic margin */
+}
+
+.content-overlay .description {
+    color: white;
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: clamp(10px, 2vw, 15px) clamp(12px, 2vw, 20px);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    font-size: clamp(14px, 2vw, 18px);
+    border-radius: 4px;
+    opacity: 0.7;
+}
+
+.carousel-button:hover {
+    background: #FEC5BB;
+    opacity: 1;
+}
+
+.carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-button.prev {
+    left: 5px;
+}
+
+.carousel-button.next {
+    right: 5px;
+}
+
+.navbar img {
+    width: 100%;
+    height: auto;
+}
+
+.main-heading {
+    margin: 30px;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sub-heading {
+    margin: 20px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #52525B;
+}
+
+.sub-title {
+    margin: 20px;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #FF6347;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .carousel-item {
+        flex: 0 0 calc(50% - 10px);
+        /* Display 2 items on small screens */
+        height: 180px;
+        /* Reduced height for better visibility */
+    }
+
+    .carousel-container {
+        margin: 0 10px;
+        padding: 0 10px;
+        /* Added padding to left and right */
+    }
+
+    .carousel-button {
+        padding: 8px 12px;
+    }
+    .content-overlay .title {
+        margin-bottom: clamp(3px, 1vw, 20px); /* Smaller margin on small screens */
+        margin-bottom: 1px;  /* Further reduce space on smaller screens */
+
+    }
+    .content-overlay .description {
+        margin-top: 0;  /* Ensure no additional space above the description on smaller screens */
+    }
+
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .carousel-item {
+        flex: 0 0 calc(50% - 10px);
+        /* Display 2 items on tablet */
+        height: 200px;
+        /* Slightly reduced height for better fit */
+    }
+
+    .carousel-container {
+        padding: 0 20px;
+        /* Added padding for tablet */
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+    .carousel-item {
+        flex: 0 0 calc(33.333% - 10px);
+    }
+
+    .carousel-container {
+        padding: 0 20px;
+    }
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background: #FEC5BB;
+    border-radius: 30px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 700;
+    color: #18181B;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background: #FF6347;
+    color: #fff;
+}
+
+/*-----------------------------------Stories---------------------------------------------*/
+/* General Styles */
+.container {
+    width: 100%;
+    background: white;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.navbar-img {
+    width: 100%;
+    height: auto;
+}
+
+.divider {
+    width: 90%;
+    height: 21px;
+    margin: 10px auto;
+    background: url('images/Divider.png') center/cover no-repeat;
+    border-radius: 10px;
+}
+
+/* Search and Category Container */
+.container-search {
+    position: relative;
+    width: 760px;
+    /* Set width */
+    padding: 20px 32px;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+    margin: auto;
+    /* Center the container horizontally */
+}
+
+
+/* Category Button */
+.category-button {
+    position: absolute;
+    /* Absolute positioning to overlay over the search bar */
+    top: 50%;
+    left: 0;
+    /* Align the button to the left of the container */
+    transform: translateY(-50%);
+    /* Centers it vertically within the container */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 233px;
+    padding: 12px 32px;
+    background: #FEC5BB;
+    border-radius: 28px;
+    z-index: 1;
+    /* Makes sure the category button is above the search bar */
+}
+
+/* Category Title */
+.category-title {
+    text-align: center;
+    color: #18181B;
+    font-size: 20px;
+    font-family: Almarai, sans-serif;
+    font-weight: 700;
+    line-height: 36px;
+    word-wrap: break-word;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    width: 100%;
+    max-width: 912px;
+    /* Limit the max-width */
+    padding: 12px 32px;
+    background: #E8E8E4;
+    border-radius: 16px;
+    position: relative;
+    /* Keeps it in the document flow */
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 250px;
+    /* Adding space to the left to prevent overlap with the button */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+.search-bar input {
+    text-align: right;
+    color: #52525B;
+    font-size: 20px;
+    font-family: Almarai, sans-serif;
+    font-weight: 400;
+    line-height: 36px;
+    word-wrap: break-word;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+
+/* Story Grid */
+.story-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.story-card {
+    width: 300px;
+    height: 216px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.story-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.85) 100%);
+}
+
+.story-title {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    text-align: right;
+    color: #ffd7ba;
+    font-size: 25px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.story-description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    .container-search {
+        width: 90%;
+        /* Make the container more flexible on smaller screens */
+        padding: 10px 20px;
+        /* Reduce padding for smaller screens */
+    }
+
+    .search-bar {
+        max-width: 100%;
+        /* Allow search bar to occupy full width on smaller screens */
+        padding-left: 120px;
+        /* Adjust left padding to make space smaller */
+        padding-right: 20px;
+        /* Reduce right padding */
+        height: 40px;
+        /* Set height for the search bar */
+        display: flex;
+        /* Ensure input is aligned within the search bar */
+        align-items: center;
+        /* Vertically center the input */
+        position: relative;
+        /* Allow button to overlay */
+    }
+
+    .search-bar input {
+        font-size: 16px;
+        /* Reduce font size inside the search bar */
+        padding: 6px 10px;
+        /* Adjust padding to make the input smaller */
+        height: 100%;
+        /* Match the height of the search bar */
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    .category-button {
+        width: 20%;
+        /* Make the button smaller */
+        height: 30%;
+        /* Set height for the search bar */
+        display: flex;
+        /* Ensure input is aligned within the search bar */
+        align-items: center;
+        /* Vertically center the input */
+    }
+
+    /* Category Title */
+    .category-title {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .story-card {
+        width: 100%;
+        /* Adjust story card width for smaller screens */
+    }
+
+    .story-title {
+        font-size: 18px;
+        /* Adjust title font size for smaller screens */
+    }
+
+    .story-description {
+        font-size: 14px;
+        /* Adjust description font size for smaller screens */
+    }
+}
+
+
+
+@media (max-width: 480px) {
+    .search-bar input {
+        font-size: 14px;
+        /* Further reduce input font size */
+    }
+
+    .divider {
+        width: 80%;
+    }
+
+    .story-title {
+        font-size: 16px;
+        /* Further reduce story title font size */
+    }
+
+    .story-description {
+        font-size: 12px;
+        /* Further reduce story description font size */
+    }
+
+    .category-button {
+        width: 120px;
+        /* Further shrink button width */
+        font-size: 14px;
+        /* Reduce font size for very small screens */
+    }
+}
+
+/*-----------------------------------Prompt---------------------------------------------*/
+.prompt * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background: white;
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        .age-button {
+            background: #FEC5BB;
+            padding: 8px 16px;
+            border-radius: 28px;
+            color: #18181B;
+            font-size: clamp(14px, 2vw, 16px);
+            font-family: Almarai, sans-serif;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            margin: 5px;
+        }
+
+        .age-button.active {
+            background: white;
+            color: #FF6347;
+            border: 1px solid #FEC5BB;
+        }
+
+        .title {
+            text-align: center;
+            color: #FF6347;
+            font-size: clamp(20px, 3vw, 24px);
+            font-family: Almarai, sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+            flex-wrap: nowrap;
+            /* Ensures buttons stay on one line */
+            width: auto;
+            /* Let the width adjust based on the buttons */
+        }
+
+        .custom-button {
+            padding: 4px 16px;
+            border-radius: 60px;
+            border: 1px solid #A1A1AA;
+            background: white;
+            color: #18181B;
+            font-size: clamp(14px, 2vw, 16px);
+            font-family: Almarai, sans-serif;
+            font-weight: 400;
+            text-align: center;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .custom-button.active {
+            background: #FEC5BB;
+            color: white;
+            border-color: #FEC5BB;
+        }
+
+        .buttonn-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .input-area {
+            width: 90%;
+            max-width: 960px;
+            margin: 20px auto;
+            border: 3px solid #FEC5BB;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: right;
+            font-size: clamp(16px, 2vw, 18px);
+            display: block;
+            position: relative;
+        }
+
+        .prompt-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 10px;
+            position: relative;
+            /* Ensure the up-button is relative to this container */
+        }
+
+
+        .main-title {
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+        }
+
+        .main-title span {
+            font-size: clamp(24px, 4vw, 48px);
+            font-family: Almarai;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .description {
+            width: 100%;
+            max-width: 830px;
+            margin: 20px auto;
+            text-align: center;
+            color: #52525B;
+            font-size: clamp(16px, 2.5vw, 24px);
+            font-family: Almarai;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 0 20px;
+        }
+
+        .story-section {
+            width: 100%;
+            max-width: 248px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .story-title {
+            text-align: center;
+            color: #18181B;
+            font-size: clamp(16px, 2vw, 20px);
+            font-family: Almarai;
+            font-weight: 700;
+        }
+
+      
+
+        .age-section {
+            max-width: 880px;
+            display: flex;
+            flex-direction: row;
+            margin: 20px auto;
+            justify-content: space-between;
+            padding: 0 15px;
+            align-items: center;
+        }
+
+        .age-title {
+            color: #FF6347;
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-family: Almarai;
+            font-weight: 700;
+            text-align: right;
+            white-space: nowrap;
+            /* Prevents wrapping of the title */
+            margin: 0;
+            /* Remove margins to make sure everything is aligned */
+        }
+
+
+        .character-traits {
+            max-width: 880px;
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin: 20px auto;
+            padding: 0 15px;
+            align-items: center;
+        }
+
+        .traits-title {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Start the flex items from the top */
+            align-items: flex-start;
+            /* Align the items to the left, so the colon is before the text */
+            gap: 10px;
+            margin-bottom: 15px;
+            direction: rtl;
+            /* Ensures text flows from right to left */
+        }
+
+        .traits-title .first-line {
+            color: #737373;
+            font-size: clamp(16px, 2vw, 24px);
+            font-family: Almarai;
+            font-weight: 400;
+        }
+
+        .traits-title .second-line {
+            color: #FF6347;
+            font-size: clamp(18px, 2.5vw, 20px);
+            font-family: Almarai;
+            font-weight: 700;
+            direction: rtl;
+            /* Ensures the colon comes before the value */
+        }
+
+        .up-button {
+            width: 50px;
+            height: 50px;
+            background-color: #FEC5BB;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 70%;
+            left: 7%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, width 0.3s, height 0.3s, font-size 0.3s;
+        }
+
+        .up-button:hover {
+            background-color: #FF6347;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .character-traits {
+                flex-direction: column;
+                /* Stack elements */
+                align-items: center;
+                padding: 10px;
+            }
+
+            .traits-title {
+                text-align: center;
+                /* Center text */
+                align-items: center;
+                /* Align items at the center */
+                margin-bottom: 15px;
+                padding: 0 10px;
+            }
+
+            .traits-title .second-line {
+                padding-right: 10px;
+                /* Add padding for spacing */
+                word-wrap: break-word;
+                text-align: center;
+            }
+
+            .buttonn-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .custom-button {
+                width: 90%;
+                max-width: 300px;
+            }
+
+
+            .description,
+            .input-area {
+                padding: 15px;
+                text-align: center;
+            }
+
+            .age-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .age-title {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .age-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 5px 0;
+            }
+
+            .up-button {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                line-height: 40px;
+                left: 8%;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .age-button,
+            .custom-button {
+                font-size: clamp(12px, 4vw, 14px);
+            }
+
+            .input-area {
+                padding: 12px;
+                font-size: clamp(14px, 3vw, 16px);
+            }
+
+            .main-title span {
+                font-size: clamp(18px, 5vw, 24px);
+            }
+
+            .description {
+                font-size: clamp(14px, 4vw, 18px);
+            }
+
+            .traits-title .first-line,
+            .traits-title .second-line {
+                font-size: clamp(14px, 4vw, 16px);
+            }
+
+           
+
+            .up-button {
+                width: 25px;
+                height: 25px;
+                font-size: 16px;
+                line-height: 30px;
+                left: 6%;
+            }
+        }
+
+
+/*-----------------------------------Story---------------------------------------------*/
+.story * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .story {
+    font-family: 'Almarai', sans-serif;
+    min-height: 100vh;
+  }
+
+   .container {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 50px;
+  }
+
+  .nav-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: calc(100vh - 220px);
+  }
+
+  .text-section {
+    flex: 1;
+    padding: 20px;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.6;
+    overflow-y: auto;
+    max-height: 70vh;
+    background-color: #ffffff;
+    border-radius: 8px;
+  }
+  .story-divider {
+    width: 6px;
+    height: 70vh;
+    background: #FAE1DD;
+    border-radius: 10px;
+  }
+
+  .image-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .title {
+    color: #FF6347;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: #A1A1AA;
+    font-size: clamp(18px, 2vw, 24px);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .story-button {
+    padding: 8px 16px;
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Almarai';
+  }
+
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+      height: auto;
+    }
+    .container{
+      padding-top: 0px;
+    }
+
+    .story-divider {
+      display: none;
+    }
+  }
+
+      /* Dropdown Button Styles */
+    .dropdowwn {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdowwn-btn {
+        padding: 8px 16px;
+        background-color: #FF6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: 'Almarai';
+    }
+
+    /* Dropdown Content Styles */
+    .dropdowwn-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+
+    .dropdowwn-content a {
+        color: #18181B;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 18px;
+    }
+
+    .dropdowwn-content a:hover {
+        background-color: #FF6347;
+        color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .dropdowwn-btn {
+            font-size: 20px;
+            padding: 14px;
+        }
+
+        .dropdowwn-content a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .dropdowwn-btn {
+            font-size: 18px;
+            padding: 12px;
+        }
+
+        .dropdowwn-content a {
+            font-size: 14px;
+        }
+    }

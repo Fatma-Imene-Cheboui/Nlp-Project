@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head class="prompt">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="prompt">
+    <div>
+        <img style="width: 100%; height: auto; max-width: 100%;" src="images/Group 1.png" alt="Navbar" />
+
+        <div class="main-title">
+            <span style="color: #18181B;">اصنع </span>
+            <span style="color: #FF6347;">عوالما</span>
+            <span style="color: #18181B;"> أخرى داخل عالم طفلك!</span>
+        </div>
+
+        <div class="description">
+            سواءً أراد طفلك ركوب الأمواج، تسفح الفضاء والكواكب، التعرف على مجنمعات مختلفة، أو التواصل مع الحيوانات، نصنع
+            ذلك كله في منصتنا!
+        </div>
+
+        <div class="age-section">
+            <div class="age-title">الفئة العمرية المستهدفة</div>
+            <div class="button-container">
+                <div class="age-button">من 9 إلى 10 سنوات</div>
+                <div class="age-button">من 6 إلى 8 سنوات</div>
+                <div class="age-button">من 3 إلى 5 سنوات</div>
+            </div>
+        </div>
+
+        <div class="character-traits">
+            <div class="traits-title">
+                <div
+                    style="color: #FF6347; font-size: clamp(18px, 2.5vw, 24px); font-family: Almarai; font-weight: 700;">
+                    القيمة المراد تعليمها:</div>
+                <input type="text"
+                    style="border: none; border-bottom: 2px solid #FEC5BB; font-size: clamp(16px, 2vw, 24px); font-weight: 400; font-family: Almarai; width: 100%; outline: none; padding: 5px;"
+                    placeholder="ادخل القيمة هنا">
+
+
+            </div>
+            <div class="buttonn-container">
+                <div class="custom-button">الوفاء</div>
+                <div class="custom-button">الوفاء</div>
+                <div class="custom-button">المساعدة</div>
+                <div class="custom-button">التسامح</div>
+                <div class="custom-button">الصبر</div>
+                <div class="custom-button">التعاون</div>
+                <div class="custom-button">الصدق</div>
+                <div class="custom-button">الأمانة</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="prompt-container">
+        <textarea class="input-area" rows="5" placeholder="درج وصفا للقصة التي تريدها هنا"></textarea>
+        <div id="up-button" class="up-button">
+            ↑
+        </div>
+    </div>
+    <!-- New Section Container that will be dynamically loaded -->
+    <div id="new-section-container"
+        style="display: none; position: relative; top: 0; width: 100%; background-color: #f9f9f9;">
+        <!-- New section content will appear here -->
+    </div>
+
+    <script>
+        // Add event listener for age buttons
+        const ageButtons = document.querySelectorAll('.age-button');
+        ageButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove 'active' class from all age buttons
+                ageButtons.forEach(btn => btn.classList.remove('active'));
+                // Add 'active' class to clicked button
+                button.classList.add('active');
+            });
+        });
+
+        // Add event listener for custom value buttons
+        const valueButtons = document.querySelectorAll('.custom-button');
+        valueButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove 'active' class from all value buttons
+                valueButtons.forEach(btn => btn.classList.remove('active'));
+                // Add 'active' class to clicked button
+                button.classList.add('active');
+            });
+        });
+
+
+
+        document.getElementById('up-button').addEventListener('click', function () {
+            // Check if the new section is already visible
+            const newSectionContainer = document.getElementById('new-section-container');
+
+            if (newSectionContainer.style.display === 'none') {
+                fetch('Story.html') // Fetch the content of the new section
+                    .then(response => response.text())
+                    .then(data => {
+                        newSectionContainer.innerHTML = data; // Add the fetched content to the container
+                        newSectionContainer.style.display = 'block'; // Show the new section
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            }
+        });
+    </script>
+</body>
+
+</html>
